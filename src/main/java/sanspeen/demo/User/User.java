@@ -1,7 +1,15 @@
 package sanspeen.demo.User;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,13 +32,16 @@ public class User implements UserDetails {
     @GeneratedValue
     Integer id;
 
+    @Basic
     @Column(nullable = false)
-    String userName;
+    String username;
 
+    @Column(nullable = false)
     String password;
     String firstName;
     String lastName;
     String country;
+    @Enumerated(EnumType.STRING)
     Role role;
 
     @Override

@@ -24,7 +24,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .csrf(AbstractHttpConfigurer::disable) //Se desactiva este metodo de seguridad para usar el nuestro
+                .csrf(csrf -> csrf.disable()) //Se desactiva este metodo de seguridad para usar el nuestro
                 .authorizeHttpRequests(authRequest ->
                         authRequest.requestMatchers("/auth/**")
                                 .permitAll()

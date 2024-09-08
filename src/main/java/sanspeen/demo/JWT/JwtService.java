@@ -16,7 +16,7 @@ import java.util.Map;
 public class JwtService {
 
     public static final int ONE_DAY = 1000 * 60 * 24;
-    public static final String SECRET_KEY = "c2Fuc3BlZW4=";
+    public static final String SECRET_KEY = "586E3272357538782F413F4428472B4B6250655368566B597033733676397924";
 
 
 

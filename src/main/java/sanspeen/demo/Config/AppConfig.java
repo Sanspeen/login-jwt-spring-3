@@ -1,7 +1,6 @@
 package sanspeen.demo.Config;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,8 +17,7 @@ import sanspeen.demo.User.UserRepository;
 @RequiredArgsConstructor
 public class AppConfig {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -42,7 +40,7 @@ public class AppConfig {
 
     @Bean
     public UserDetailsService userDetailService() {
-        return username -> userRepository.findByUserName(username)
+        return username -> userRepository.findByUsername(username)
                 .orElseThrow(
                         () -> new UsernameNotFoundException("User not found :(")
                 );
